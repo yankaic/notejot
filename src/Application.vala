@@ -69,13 +69,13 @@ namespace Notejot {
             } else {
                 var list = note_manager.load_from_file();
                 
-                if (list.size == 0) {
-                    create_note(null);
-                } else {
-                    foreach (Storage storage in list) {
-                        create_note(storage);
-                    }
-                }
+                create_note(null);
+                //  if (list.size == 0) {
+                //  } else {
+                //      foreach (Storage storage in list) {
+                //          create_note(storage);
+                //      }
+                //  }
             }
         }
         

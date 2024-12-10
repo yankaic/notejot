@@ -65,7 +65,7 @@ namespace Notejot {
                 this.pinned = false;
                 this.content = "";
                 this.set_position(Gtk.WindowPosition.CENTER);
-                this.title_name = "Notejot";
+                this.title_name = "Nota";
                 set_title (this.title_name);
             }
 
@@ -73,6 +73,7 @@ namespace Notejot {
             this.get_style_context().add_class("default-decoration");
             this.get_style_context().add_class("notejot-window");
             this.uid = uid_counter++;
+            this.set_keep_above (true);
 
             update_theme();
 
@@ -85,7 +86,7 @@ namespace Notejot {
 
             delete_item = new Gtk.Button ();
             delete_item.tooltip_text = (_("Delete note"));
-            delete_item.set_image (new Gtk.Image.from_icon_name ("edit-delete-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
+            delete_item.set_image (new Gtk.Image.from_icon_name ("", Gtk.IconSize.SMALL_TOOLBAR));
             delete_item.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_DELETE;
 
             var applet_button = new Gtk.ToggleButton ();
@@ -119,17 +120,17 @@ namespace Notejot {
 
             label = new Notejot.EditableLabel (this.title_name);
             header.set_custom_title(label);
-            header.pack_end (applet_button);
+            //header.pack_end (applet_button);
             header.pack_start (delete_item);
             this.set_titlebar(header);
 
             actionbar = new Gtk.ActionBar ();
             actionbar.get_style_context().add_class("notejot-bar");
-            create_actionbar ();
-            create_app_menu ();
+            //create_actionbar ();
+            //create_app_menu ();
 
             var scrolled = new Gtk.ScrolledWindow (null, null);
-            scrolled.set_size_request (330,270);
+            scrolled.set_size_request (300,10);
 
             buffer = new Gtk.SourceBuffer (null);
             buffer.set_highlight_matching_brackets (false);
